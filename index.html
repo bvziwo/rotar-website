@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROTAR — Czyszczalnie, przenośniki i konstrukcje stalowe dla rolnictwa</title>
+<meta name="description" content="ROTAR Sp. Jawna – czyszczalnie i podnośniki kubełkowe do zbóż, rzepaku i kukurydzy, przenośniki łańcuchowe, wywrotnice samochodowe, kosze przyjęciowe, hale i konstrukcje stalowe. Koneck, woj. kujawsko-pomorskie.">
+<meta name="keywords" content="czyszczalnia do zbóż, podnośniki kubełkowe, przenośniki łańcuchowe, wywrotnice samochodowe, hale stalowe, ROTAR Koneck">
+<link rel="icon" href="img/logo.gif" type="image/gif">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header id="site-header">
+  <div class="container">
+    <a href="#start" class="brand">
+      <img src="img/logo.gif" alt="ROTAR">
+      <span class="brand-text"><strong>ROTAR</strong><span>Sp. Jawna &middot; Koneck</span></span>
+    </a>
+    <nav class="main-nav" id="main-nav">
+      <ul>
+        <li><a href="#start">Start</a></li>
+        <li><a href="#o-firmie">O firmie</a></li>
+        <li><a href="#oferta">Oferta</a></li>
+        <li><a href="#realizacje">Realizacje</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a class="call" href="tel:+48790332664">790&nbsp;332&nbsp;664</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<svg width="0" height="0" style="position:absolute;overflow:hidden">
+  <defs>
+    <filter id="wheat-wave" x="-25%" y="-25%" width="150%" height="150%">
+      <feTurbulence type="fractalNoise" numOctaves="2" seed="7" result="wheatTurb">
+        <animate attributeName="baseFrequency" dur="9s" values="0.006 0.014;0.012 0.022;0.006 0.014" repeatCount="indefinite"/>
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="wheatTurb" scale="15" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+<section class="hero" id="start">
+  <div class="hero-bg hero-bg-wheat" style="--hero-img:url('../img/wheat-field.jpg');"></div>
+  <div class="hero-bg hero-bg-wind" style="--hero-img:url('../img/wheat-field.jpg');"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-watermark" aria-hidden="true">ROTAR</div>
+  <div class="container">
+    <div class="hero-inner">
+      <h1 class="reveal in">Kompletne linie do <em>czyszczenia i&nbsp;transportu</em> zbóż</h1>
+      <p class="lead reveal in">Projektujemy, produkujemy i montujemy czyszczalnie, przenośniki kubełkowe i łańcuchowe, wywrotnice, kosze przyjęciowe oraz hale i konstrukcje stalowe — dla gospodarstw i punktów skupu zbóż, rzepaku i kukurydzy.</p>
+      <div class="hero-cta reveal in">
+        <a href="#oferta" class="btn btn-primary">
+          Zobacz ofertę
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="tel:+48790332664" class="btn btn-ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.79.65 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.27a2 2 0 0 1 2.11-.45c.86.31 1.75.53 2.65.65A2 2 0 0 1 22 16.92z"/></svg>
+          Zadzwoń do nas
+        </a>
+      </div>
+      <div class="hero-chips reveal in">
+        <a href="#tab-czyszczalnie">Czyszczalnie</a>
+        <a href="#tab-kubelkowe">Przenośniki kubełkowe</a>
+        <a href="#tab-lancuchowe">Przenośniki łańcuchowe</a>
+        <a href="#tab-wywrotnice">Wywrotnice samochodowe</a>
+        <a href="#tab-kosze">Kosze przyjęciowe</a>
+        <a href="#tab-hale">Hale i konstrukcje</a>
+        <a href="#tab-armatura">Armatura grawitacyjna</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue"><span>Przewiń</span><span class="line"></span></div>
+</section>
+
+<!-- ===================== TRUST STRIP ===================== -->
+<div class="trust-strip">
+  <div class="container">
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l8 4v6c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6l8-4z"/></svg>
+      Własna produkcja i montaż
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="7" width="13" height="11" rx="1.5"/><path d="M16 10h3l2 3v5h-5"/><circle cx="7.5" cy="18.5" r="1.6"/><circle cx="17.5" cy="18.5" r="1.6"/></svg>
+      Realizacje w całej Polsce
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11z"/><path d="M9 12l2 2 4-4"/></svg>
+      Kompleksowo — od projektu po uruchomienie
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+      Wsparcie serwisowe po montażu
+    </div>
+  </div>
+</div>
+
+<!-- ===================== O FIRMIE ===================== -->
+<section class="about section-pad" id="o-firmie">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-copy">
+        <div class="eyebrow reveal">O firmie</div>
+        <h2 class="reveal">Firma inżynierska ROTAR z Konecka</h2>
+        <p class="reveal">
+          <strong>„ROTAR” Sp. Jawna</strong> to firma prowadzona przez trzech wspólników — Roberta Buze,
+          Radosława Kisielewskiego i Tomasza Pracowitego. Od lat projektujemy, produkujemy i montujemy
+          urządzenia do czyszczenia, transportu i magazynowania zbóż, rzepaku i kukurydzy — od pojedynczej
+          czyszczalni po rozbudowane hale magazynowe realizowane pod klucz.
+        </p>
+        <p class="reveal">
+          Każdą instalację dopasowujemy indywidualnie do wydajności i warunków gospodarstwa lub punktu
+          skupu, łącząc własną produkcję stalowych konstrukcji z montażem kompletnych linii technologicznych.
+        </p>
+        <div class="value-list stagger">
+          <div class="value-item reveal" style="--i:0">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.4-3.4a4 4 0 0 1-5.4 5.4L8.5 18.5a2 2 0 0 1-2.8-2.8L12.9 8.5a4 4 0 0 1 5.4-5.4l-3.4 3.4z"/></svg>
+            <div><h4>Własna produkcja</h4><p>Konstrukcje i podzespoły wykonujemy samodzielnie.</p></div>
+          </div>
+          <div class="value-item reveal" style="--i:1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>
+            <div><h4>Rozwiązania szyte na miarę</h4><p>Dobór wydajności i konstrukcji do potrzeb obiektu.</p></div>
+          </div>
+          <div class="value-item reveal" style="--i:2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+            <div><h4>Realizacja kompleksowa</h4><p>Od projektu, przez produkcję, po montaż na miejscu.</p></div>
+          </div>
+          <div class="value-item reveal" style="--i:3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11z"/></svg>
+            <div><h4>Wsparcie po montażu</h4><p>Pomoc serwisowa i doradztwo eksploatacyjne.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="about-media reveal-scale">
+        <div class="frame"><img src="img/galeria/czyszczalnie.jpg" data-full="img/galeria/czyszczalnie.jpg" alt="Czyszczalnia ROTAR — produkcja własna"></div>
+        <div class="badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg>
+          <div><strong>Koneck 113B</strong><span>87-702 Koneck, woj. kujawsko-pomorskie</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== OFERTA / TABS ===================== -->
+<section class="offer section-pad" id="oferta">
+  <div class="container">
+    <div class="section-head center">
+      <div class="eyebrow reveal">Oferta</div>
+      <h2 class="reveal">Siedem obszarów jednej, spójnej linii technologicznej</h2>
+      <p class="reveal">Wybierz kategorię, aby zobaczyć zakres i najważniejsze cechy rozwiązania.</p>
+    </div>
+
+    <div class="tabs">
+      <div class="tab-nav reveal">
+        <button class="tab-btn active" data-tab="czyszczalnie" id="tab-czyszczalnie">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5h16l-6 8v6l-4 2v-8L4 5z"/></svg>
+          Czyszczalnie
+        </button>
+        <button class="tab-btn" data-tab="kubelkowe" id="tab-kubelkowe">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="9" y="2" width="6" height="20" rx="1"/><path d="M6 8l3-2M18 8l-3-2M6 14l3-2M18 14l-3-2M6 20l3-2M18 20l-3-2"/></svg>
+          Przenośniki kubełkowe
+        </button>
+        <button class="tab-btn" data-tab="lancuchowe" id="tab-lancuchowe">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="6" cy="12" r="3"/><circle cx="12" cy="12" r="3"/><circle cx="18" cy="12" r="3"/></svg>
+          Przenośniki łańcuchowe
+        </button>
+        <button class="tab-btn" data-tab="wywrotnice" id="tab-wywrotnice">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 17V9l6-3 6 3v8"/><circle cx="6.5" cy="18.5" r="1.6"/><circle cx="15.5" cy="18.5" r="1.6"/><path d="M15 17h4l2-3-3-3h-3"/></svg>
+          Wywrotnice samochodowe
+        </button>
+        <button class="tab-btn" data-tab="kosze" id="tab-kosze">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 5h18l-7 8v6h-4v-6L3 5z"/></svg>
+          Kosze przyjęciowe
+        </button>
+        <button class="tab-btn" data-tab="hale" id="tab-hale">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21V10l9-6 9 6v11"/><path d="M3 10h18M9 21v-7h6v7"/></svg>
+          Hale i konstrukcje
+        </button>
+        <button class="tab-btn" data-tab="armatura" id="tab-armatura">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 8h6v8H4zM14 4v16M14 8h6M14 16h6"/></svg>
+          Armatura grawitacyjna
+        </button>
+      </div>
+
+      <div class="tab-panels">
+
+        <div class="tab-panel active" data-panel="czyszczalnie">
+          <div class="panel-copy">
+            <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h16l-6 8v6l-4 2v-8L4 5z"/></svg></div>
+            <h3>Czyszczalnie i wialnie</h3>
+            <p class="desc">Czyszczalnie i wialnie do separacji ziarna zbóż, rzepaku oraz kukurydzy z zanieczyszczeń, plew i frakcji niepożądanych. Konstrukcja dopasowana do wydajności gospodarstwa lub punktu skupu, z możliwością pełnej integracji z istniejącą linią transportową.</p>
+            <ul class="feature-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Skuteczne oddzielanie zanieczyszczeń i frakcji lekkich</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Solidna, spawana konstrukcja stalowa</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Wydajność dobrana do indywidualnych potrzeb</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Łatwa integracja z przenośnikami i kubełkami</li>
+            </ul>
+          </div>
+          <div class="panel-media"><span class="tag">Wialnia ROTAR</span><img src="img/galeria/czyszczalnie.jpg" alt="Czyszczalnia / wialnia ROTAR"></div>
+        </div>
+
+        <div class="tab-panel" data-panel="kubelkowe">
+          <div class="panel-copy">
+            <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="9" y="2" width="6" height="20" rx="1"/><path d="M6 8l3-2M18 8l-3-2M6 14l3-2M18 14l-3-2"/></svg></div>
+            <h3>Przenośniki kubełkowe</h3>
+            <p class="desc">Pionowe przenośniki kubełkowe do transportu ziarna i materiałów sypkich na duże wysokości — kluczowy element linii załadunkowych, czyszczalni i silosów. Wykonanie w oparciu o wytrzymałe profile stalowe i kubełki dobrane do rodzaju transportowanego materiału.</p>
+            <ul class="feature-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Wysoka wydajność transportu pionowego</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Trwałe kubełki i taśmy napędowe</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Zabezpieczenia przeciwprzeciążeniowe</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Wykonanie dopasowane do wysokości obiektu</li>
+            </ul>
+          </div>
+          <div class="panel-media"><span class="tag">Podnośnik kubełkowy</span><img src="img/galeria/kubelkowe.jpg" alt="Przenośnik kubełkowy ROTAR"></div>
+        </div>
+
+        <div class="tab-panel" data-panel="lancuchowe">
+          <div class="panel-copy">
+            <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="6" cy="12" r="3"/><circle cx="12" cy="12" r="3"/><circle cx="18" cy="12" r="3"/></svg></div>
+            <h3>Przenośniki łańcuchowe</h3>
+            <p class="desc">Przenośniki łańcuchowe (redlery) do poziomego i pochyłego transportu zbóż wewnątrz hal, silosów oraz pomiędzy urządzeniami linii technologicznej. Zamknięta konstrukcja ogranicza pylenie i straty transportowanego materiału.</p>
+            <ul class="feature-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Cicha i szczelna praca</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Niskie straty transportowanego materiału</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Możliwość transportu na wielu poziomach</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Odporność na obciążenia eksploatacyjne</li>
+            </ul>
+          </div>
+          <div class="panel-media"><span class="tag">Przenośnik łańcuchowy</span><img src="img/galeria/lancuchowe.jpg" alt="Przenośnik łańcuchowy ROTAR"></div>
+        </div>
+
+        <div class="tab-panel" data-panel="wywrotnice">
+          <div class="panel-copy">
+            <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 17V9l6-3 6 3v8"/><circle cx="6.5" cy="18.5" r="1.6"/><circle cx="15.5" cy="18.5" r="1.6"/></svg></div>
+            <h3>Wywrotnice samochodowe</h3>
+            <p class="desc">Wywrotnice samochodowe umożliwiające szybki i bezpieczny rozładunek zbóż z samochodów ciężarowych i przyczep bezpośrednio do kosza przyjęciowego. Rozwiązanie usprawniające logistykę w punktach skupu i dużych gospodarstwach.</p>
+            <ul class="feature-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Szybki rozładunek pojazdów dostawczych</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Bezpieczna, stabilna konstrukcja hydrauliczna</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Skrócenie czasu obsługi dostawców</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Dopasowanie do typu i wielkości pojazdów</li>
+            </ul>
+          </div>
+          <div class="panel-media"><span class="tag">Wywrotnica samochodowa</span><img src="img/galeria/wywrotnice.jpg" alt="Wywrotnica samochodowa ROTAR — rozładunek zboża"></div>
+        </div>
+
+        <div class="tab-panel" data-panel="kosze">
+          <div class="panel-copy">
+            <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 5h18l-7 8v6h-4v-6L3 5z"/></svg></div>
+            <h3>Kosze przyjęciowe</h3>
+            <p class="desc">Kosze przyjęciowe stanowią pierwszy etap linii — przyjmują ziarno z rozładunku i kierują je dalej do czyszczenia, suszenia lub magazynowania. Wykonywane w wersjach naziemnych i zagłębionych, dostosowanych do warunków terenowych.</p>
+            <ul class="feature-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Duża pojemność przyjęcia materiału</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Wykonanie naziemne lub zagłębione</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Solidne kraty i zabezpieczenia wlotu</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Płynne podawanie materiału do dalszych etapów</li>
+            </ul>
+          </div>
+          <div class="panel-media icon-only"><span class="tag">Kosz przyjęciowy</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 5h18l-7 8v6h-4v-6L3 5z"/></svg></div>
+        </div>
+
+        <div class="tab-panel" data-panel="hale">
+          <div class="panel-copy">
+            <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V10l9-6 9 6v11"/><path d="M3 10h18M9 21v-7h6v7"/></svg></div>
+            <h3>Hale, wiaty i konstrukcje stalowe</h3>
+            <p class="desc">Projektujemy i wykonujemy hale magazynowe, wiaty oraz konstrukcje stalowe pod urządzenia technologiczne — od fundamentu po pokrycie dachowe. Konstrukcje ocynkowane, dostosowane do polskich warunków atmosferycznych i obciążeń.</p>
+            <ul class="feature-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Konstrukcje stalowe, w tym ocynkowane</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Realizacja od projektu po montaż</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Obiekty dopasowane do linii technologicznej</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Trwałość i odporność na warunki atmosferyczne</li>
+            </ul>
+          </div>
+          <div class="panel-media"><span class="tag">Realizacja hali</span><img src="img/galeria/hale.jpg" alt="Hala stalowa ROTAR"></div>
+        </div>
+
+        <div class="tab-panel" data-panel="armatura">
+          <div class="panel-copy">
+            <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8h6v8H4zM14 4v16M14 8h6M14 16h6"/></svg></div>
+            <h3>Armatura transportu grawitacyjnego</h3>
+            <p class="desc">Kompletna armatura transportu grawitacyjnego — rury, kolana, przerzutniki, zsypy i zasuwy — umożliwiająca swobodny przepływ ziarna pomiędzy urządzeniami linii bez dodatkowego napędu.</p>
+            <ul class="feature-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Szeroki wybór średnic i kształtek</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Szczelne połączenia ograniczające straty</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Przerzutniki i zasuwy sterujące kierunkiem</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Łatwy montaż i rozbudowa instalacji</li>
+            </ul>
+          </div>
+          <div class="panel-media"><span class="tag">Transport grawitacyjny</span><img src="img/galeria/transport.jpg" alt="Armatura transportu grawitacyjnego ROTAR — silos"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== REALIZACJE / VIDEO ===================== -->
+<section class="realizacje section-pad" id="realizacje">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Realizacje</div>
+      <h2>Zobacz nasze instalacje w akcji</h2>
+      <p>Krótki film z wybranych realizacji ROTAR — montaż i praca urządzeń u naszych klientów.</p>
+    </div>
+    <div class="real-grid">
+      <div class="video-frame reveal-scale">
+        <iframe src="https://www.youtube.com/embed/cYcA_Ma1o_Y" title="ROTAR — film z realizacji" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="real-strip reveal">
+        <figure><img src="img/realizacje/realizacja-01.jpg" data-full="img/realizacje/realizacja-01.jpg" alt="Realizacja ROTAR 1" loading="lazy"></figure>
+        <figure><img src="img/realizacje/realizacja-02.jpg" data-full="img/realizacje/realizacja-02.jpg" alt="Realizacja ROTAR 2" loading="lazy"></figure>
+        <figure><img src="img/realizacje/realizacja-03.jpg" data-full="img/realizacje/realizacja-03.jpg" alt="Realizacja ROTAR 3" loading="lazy"></figure>
+        <figure><img src="img/realizacje/realizacja-04.jpg" data-full="img/realizacje/realizacja-04.jpg" alt="Realizacja ROTAR 4" loading="lazy"></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GALERIA ===================== -->
+<section class="gallery-section section-pad" id="galeria">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Galeria</div>
+      <h2>Zdjęcia z realizacji — usługa po usłudze</h2>
+      <p>Prawdziwe zdjęcia naszych maszyn i instalacji, posegregowane według rodzaju usługi.</p>
+    </div>
+
+    <div class="gal-jump reveal">
+      <a href="#gal-czyszczalnie">Czyszczalnie i wialnie</a>
+      <a href="#gal-kubelkowe">Przenośniki kubełkowe</a>
+      <a href="#gal-lancuchowe">Przenośniki łańcuchowe</a>
+      <a href="#gal-wywrotnice">Wywrotnice samochodowe</a>
+      <a href="#gal-hale">Hale i konstrukcje</a>
+      <a href="#gal-transport">Transport grawitacyjny</a>
+      <a href="#gal-zaladunek">Załadunek w firmie</a>
+    </div>
+
+    <div class="gal-categories">
+
+      <div class="gal-cat reveal" id="gal-czyszczalnie">
+        <div class="gal-cat-head"><h3>Czyszczalnie i wialnie</h3><span>3 zdjęcia</span></div>
+        <div class="gal-cat-grid cols-3">
+          <div class="gal-item" data-group="czyszczalnie"><img src="img/galeria/czyszczalnie.jpg" data-full="img/galeria/czyszczalnie.jpg" alt="Czyszczalnia ROTAR — montaż na platformie" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"></path></svg></span></div>
+          <div class="gal-item" data-group="czyszczalnie"><img src="img/galeria/wialnia.jpg" data-full="img/galeria/wialnia.jpg" alt="Wialnia ROTAR na platformie technologicznej" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"></path></svg></span></div>
+          <div class="gal-item" data-group="czyszczalnie"><img src="img/realizacje/realizacja-03.jpg" data-full="img/realizacje/realizacja-03.jpg" alt="Wialnia ROTAR — widok maszyny" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"></path></svg></span></div>
+        </div>
+      </div>
+
+      <div class="gal-cat reveal" id="gal-kubelkowe">
+        <div class="gal-cat-head"><h3>Przenośniki kubełkowe</h3><span>3 zdjęcia</span></div>
+        <div class="gal-cat-grid cols-3">
+          <div class="gal-item" data-group="kubelkowe"><img src="img/galeria/kubelkowe.jpg" data-full="img/galeria/kubelkowe.jpg" alt="Głowica przenośnika kubełkowego ROTAR" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"></path></svg></span></div>
+          <div class="gal-item" data-group="kubelkowe"><img src="img/realizacje/realizacja-01.jpg" data-full="img/realizacje/realizacja-01.jpg" alt="Instalacja przenośnika kubełkowego u klienta" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"></path></svg></span></div>
+          <div class="gal-item" data-group="kubelkowe"><img src="img/realizacje/realizacja-02.jpg" data-full="img/realizacje/realizacja-02.jpg" alt="Platforma technologiczna z przenośnikiem kubełkowym" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"></path></svg></span></div>
+        </div>
+      </div>
+
+      <div class="gal-cat reveal" id="gal-lancuchowe">
+        <div class="gal-cat-head"><h3>Przenośniki łańcuchowe</h3><span>1 zdjęcie</span></div>
+        <div class="gal-cat-grid single">
+          <div class="gal-item" data-group="lancuchowe"><img src="img/galeria/lancuchowe.jpg" data-full="img/galeria/lancuchowe.jpg" alt="Przenośnik łańcuchowy ROTAR — montaż" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"></path></svg></span></div>
+        </div>
+      </div>
+
+      <div class="gal-cat reveal" id="gal-wywrotnice">
+        <div class="gal-cat-head"><h3>Wywrotnice samochodowe</h3><span>1 zdjęcie</span></div>
+        <div class="gal-cat-grid single">
+          <div class="gal-item" data-group="wywrotnice"><img src="img/galeria/wywrotnice.jpg" data-full="img/galeria/wywrotnice.jpg" alt="Wywrotnica samochodowa ROTAR — rozładunek zboża" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"></path></svg></span></div>
+        </div>
+      </div>
+
+      <div class="gal-cat reveal" id="gal-hale">
+        <div class="gal-cat-head"><h3>Hale i konstrukcje stalowe</h3><span>42 zdjęcia</span></div>
+        <div class="gal-cat-grid cols-3">
+          <div class="gal-item" data-group="hale"><img src="img/galeria/hale.jpg" data-full="img/galeria/hale.jpg" alt="Hala magazynowa ROTAR" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"></path></svg></span></div>
+          <div class="gal-item" data-group="hale"><img src="img/hale/hale-09.jpg" data-full="img/hale/hale-09.jpg" alt="Hala stalowa ROTAR — realizacja" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"></path></svg></span></div>
+          <div class="gal-item" data-group="hale"><img src="img/hale/hale-25.jpg" data-full="img/hale/hale-25.jpg" alt="Konstrukcja stalowa ROTAR — montaż" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"></path></svg></span></div>
+        </div>
+        <div class="gal-more">
+          <button class="btn btn-outline" id="gal-more-btn">
+            Zobacz pełną galerię hal (42 zdjęcia)
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </div>
+        <div class="gal-cat-grid cols-6" id="gal-hale-extra" hidden></div>
+      </div>
+
+      <div class="gal-cat reveal" id="gal-transport">
+        <div class="gal-cat-head"><h3>Transport grawitacyjny</h3><span>1 zdjęcie</span></div>
+        <div class="gal-cat-grid single">
+          <div class="gal-item" data-group="transport"><img src="img/galeria/transport.jpg" data-full="img/galeria/transport.jpg" alt="Armatura transportu grawitacyjnego ROTAR — silos" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"></path></svg></span></div>
+        </div>
+      </div>
+
+      <div class="gal-cat reveal" id="gal-zaladunek">
+        <div class="gal-cat-head"><h3>Załadunek w firmie</h3><span>1 zdjęcie</span></div>
+        <div class="gal-cat-grid single">
+          <div class="gal-item" data-group="zaladunek"><img src="img/galeria/zaladunek.jpg" data-full="img/galeria/zaladunek.jpg" alt="Gotowe elementy ROTAR przygotowane do wysyłki" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"></path></svg></span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== KONTAKT ===================== -->
+<section class="contact section-pad" id="kontakt">
+  <div class="hero-grain"></div>
+  <div class="hero-watermark contact-watermark" aria-hidden="true">ROTAR</div>
+  <div class="container">
+    <div class="section-head center">
+      <div class="eyebrow reveal">Kontakt</div>
+      <h2 class="reveal">Porozmawiajmy o Twojej instalacji</h2>
+      <p class="reveal">Zadzwoń bezpośrednio do jednego ze wspólników lub odwiedź nas w Konecku.</p>
+    </div>
+
+    <div class="contact-grid stagger">
+      <div class="person-card reveal" style="--i:0">
+        <div class="person-avatar">RB</div>
+        <h4>Robert Buze</h4>
+        <span class="role">Wspólnik</span>
+        <a class="tel" href="tel:+48790332664">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.79.65 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.27a2 2 0 0 1 2.11-.45c.86.31 1.75.53 2.65.65A2 2 0 0 1 22 16.92z"/></svg>
+          790 332 664
+        </a>
+      </div>
+      <div class="person-card reveal" style="--i:1">
+        <div class="person-avatar">RK</div>
+        <h4>Radosław Kisielewski</h4>
+        <span class="role">Wspólnik</span>
+        <a class="tel" href="tel:+48602270798">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.79.65 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.27a2 2 0 0 1 2.11-.45c.86.31 1.75.53 2.65.65A2 2 0 0 1 22 16.92z"/></svg>
+          602 270 798
+        </a>
+      </div>
+      <div class="person-card reveal" style="--i:2">
+        <div class="person-avatar">TP</div>
+        <h4>Tomasz Pracowity</h4>
+        <span class="role">Wspólnik</span>
+        <a class="tel" href="tel:+48792971552">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.79.65 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.27a2 2 0 0 1 2.11-.45c.86.31 1.75.53 2.65.65A2 2 0 0 1 22 16.92z"/></svg>
+          792 971 552
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-bottom">
+      <div class="contact-info reveal">
+        <div class="row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div><strong>„ROTAR” Sp. Jawna</strong><span>R. Buze, R. Kisielewski, T. Pracowity<br>Koneck 113B, 87-702 Koneck</span></div>
+        </div>
+        <div class="row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.79.65 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.27a2 2 0 0 1 2.11-.45c.86.31 1.75.53 2.65.65A2 2 0 0 1 22 16.92z"/></svg>
+          <div><strong>Telefon</strong><span>Robert Buze — 790 332 664<br>Radosław Kisielewski — 602 270 798<br>Tomasz Pracowity — 792 971 552</span></div>
+        </div>
+        <div class="contact-info-actions">
+          <a href="tel:+48790332664" class="btn btn-primary">
+            Zadzwoń teraz
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Koneck+113B,+87-702+Koneck" target="_blank" rel="noopener" class="btn btn-outline btn-outline-light">
+            Wyznacz trasę
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="map-frame reveal">
+        <a class="map-route-badge" href="https://www.google.com/maps/dir/?api=1&amp;destination=Koneck+113B,+87-702+Koneck" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Wyznacz trasę z mojej lokalizacji
+        </a>
+        <iframe src="https://www.google.com/maps?saddr=&daddr=Koneck+113B,+87-702+Koneck&output=embed" title="Trasa dojazdu — ROTAR Koneck 113B" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allow="geolocation"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><img src="img/logo.gif" alt="ROTAR"><strong>ROTAR</strong></div>
+        <p>Czyszczalnie i podnośniki kubełkowe do zbóż, rzepaku i kukurydzy. Kompleksowe linie technologiczne oraz hale i konstrukcje stalowe.</p>
+      </div>
+      <div>
+        <h5>Nawigacja</h5>
+        <ul>
+          <li><a href="#o-firmie">O firmie</a></li>
+          <li><a href="#oferta">Oferta</a></li>
+          <li><a href="#realizacje">Realizacje</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Kontakt</h5>
+        <ul>
+          <li>Koneck 113B, 87-702 Koneck</li>
+          <li><a href="tel:+48790332664">Robert Buze — 790 332 664</a></li>
+          <li><a href="tel:+48602270798">Radosław Kisielewski — 602 270 798</a></li>
+          <li><a href="tel:+48792971552">Tomasz Pracowity — 792 971 552</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> „ROTAR” Sp. Jawna. Wszelkie prawa zastrzeżone.</span>
+      <span>Koneck 113B, 87-702 Koneck</span>
+    </div>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Do góry">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<!-- ===================== LIGHTBOX ===================== -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" aria-label="Zamknij"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+  <button class="lightbox-nav lightbox-prev" aria-label="Poprzednie"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+  <img id="lightbox-img" src="" alt="">
+  <button class="lightbox-nav lightbox-next" aria-label="Następne"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+  <div class="lightbox-counter" id="lightbox-counter"></div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
