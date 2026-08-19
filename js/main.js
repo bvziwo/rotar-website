@@ -72,8 +72,18 @@
     syncNavA11y();
   }
 
-  /* ---------- scroll reveal ---------- */
+  /* ---------- scroll reveal ----------
+     A negative bottom rootMargin shrinks the box an element must enter to
+     count as "visible", which can strand items that sit right at the very
+     bottom of the page (there's no further scroll room left to push them
+     across that shrunk line) — they'd stay opacity:0 forever. Use a plain
+     0-margin box, and as a safety net also force-reveal anything left over
+     once the user nears the bottom of the page or the page finishes
+     loading, so content can never get permanently stuck invisible. */
   var revealEls = document.querySelectorAll('.reveal, .reveal-scale');
+  var galItems = Array.prototype.slice.call(document.querySelectorAll('.gal-item'));
+  var allRevealables = Array.prototype.slice.call(revealEls).concat(galItems);
+
   if('IntersectionObserver' in window){
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
@@ -82,26 +92,21 @@
           io.unobserve(entry.target);
         }
       });
-    }, {threshold:.15, rootMargin:'0px 0px -60px 0px'});
-    revealEls.forEach(function(el){ io.observe(el); });
-  } else {
-    revealEls.forEach(function(el){ el.classList.add('in'); });
-  }
+    }, {threshold:.1, rootMargin:'0px 0px 0px 0px'});
+    allRevealables.forEach(function(el){ io.observe(el); });
 
-  /* ---------- gallery items + reveal ---------- */
-  var galItems = Array.prototype.slice.call(document.querySelectorAll('.gal-item'));
-  if('IntersectionObserver' in window){
-    var io2 = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting){
-          entry.target.classList.add('in');
-          io2.unobserve(entry.target);
-        }
+    var revealRest = function(){
+      allRevealables.forEach(function(el){
+        if(!el.classList.contains('in')){ el.classList.add('in'); io.unobserve(el); }
       });
-    }, {threshold:.1, rootMargin:'0px 0px -40px 0px'});
-    galItems.forEach(function(el){ io2.observe(el); });
+    };
+    window.addEventListener('load', revealRest);
+    document.addEventListener('scroll', function(){
+      var scrolledNearBottom = window.scrollY + window.innerHeight > document.documentElement.scrollHeight - 200;
+      if(scrolledNearBottom){ revealRest(); }
+    }, {passive:true});
   } else {
-    galItems.forEach(function(el){ el.classList.add('in'); });
+    allRevealables.forEach(function(el){ el.classList.add('in'); });
   }
 
   /* ---------- lightbox (grouped per category) ---------- */

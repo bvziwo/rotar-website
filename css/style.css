@@ -151,7 +151,7 @@
 .page-loader.loaded{opacity:0;visibility:hidden;pointer-events:none;}
 @keyframes loaderFailsafe{to{opacity:0;visibility:hidden;pointer-events:none;}}
 .page-loader-inner{position:relative;display:flex;align-items:center;justify-content:center;}
-.page-loader-inner img{position:relative;z-index:1;width:150px;height:auto;animation:loaderPulse 1.6s ease-in-out infinite;}
+.page-loader-inner .rotar-logo{position:relative;z-index:1;width:150px;height:auto;animation:loaderPulse 1.6s ease-in-out infinite;}
 .page-loader-ring{
   position:absolute;width:200px;height:200px;border-radius:50%;
   border:3px solid rgba(227,200,119,.18);
@@ -161,7 +161,7 @@
 @keyframes loaderPulse{0%,100%{transform:scale(1);opacity:.92;}50%{transform:scale(1.08);opacity:1;}}
 @keyframes loaderSpin{to{transform:rotate(360deg);}}
 @media(prefers-reduced-motion:reduce){
-  .page-loader-inner img,.page-loader-ring{animation:none;}
+  .page-loader-inner .rotar-logo,.page-loader-ring{animation:none;}
 }
 
 *,*::before,*::after{box-sizing:border-box;}
@@ -284,6 +284,32 @@ section[id]{scroll-margin-top:88px;}
 .reveal-scale.in{opacity:1;transform:scale(1);filter:blur(0);}
 .stagger > *{transition-delay:calc(var(--i,0) * 110ms);}
 
+/* ===================== ROTAR LOGO (spinning gear) =====================
+   Two plain raster layers (gear ring + static ribbon/text), composited
+   and animated with ordinary CSS transform/animation on real DOM
+   elements — deliberately NOT an SVG animated via <img src>, since that
+   technique is unreliable across mobile browsers (notably iOS Safari
+   frequently never runs it). Resize any instance by setting height on
+   .rotar-logo; width follows via aspect-ratio. */
+.rotar-logo{
+  position:relative;display:inline-block;flex:none;
+  aspect-ratio:225/102;height:96px;width:auto;
+  transition:height .35s var(--ease);
+}
+.rotar-logo-mask{position:absolute;inset:0;overflow:hidden;}
+.rotar-logo-gear{
+  position:absolute;left:50.6667%;top:105.8824%;
+  width:109.6297%;height:241.8299%;max-width:none;max-height:none;
+  transform:translate(-50%,-50%);
+  animation:rotar-spin 9s linear infinite;
+}
+@keyframes rotar-spin{
+  from{transform:translate(-50%,-50%) rotate(0deg);}
+  to{transform:translate(-50%,-50%) rotate(360deg);}
+}
+@media(prefers-reduced-motion:reduce){.rotar-logo-gear{animation:none;}}
+.rotar-logo-ribbon{position:absolute;inset:0;width:100%;height:100%;display:block;}
+
 /* ===================== HEADER ===================== */
 #site-header{
   position:fixed;top:0;left:0;right:0;z-index:1000;
@@ -298,8 +324,8 @@ section[id]{scroll-margin-top:88px;}
   box-shadow:0 6px 24px rgba(44,33,16,.08);
 }
 .brand{display:flex;align-items:center;gap:18px;}
-.brand img{height:96px;width:auto;transition:height .35s var(--ease);position:relative;z-index:1;}
-#site-header.scrolled .brand img{height:72px;}
+.brand .rotar-logo{height:96px;position:relative;z-index:1;}
+#site-header.scrolled .brand .rotar-logo{height:72px;}
 .brand-text{position:relative;display:flex;flex-direction:column;line-height:1.1;}
 .brand-text::before{
   content:"";position:absolute;top:50%;left:-24px;transform:translateY(-50%) scale(1);
@@ -364,8 +390,8 @@ section[id]{scroll-margin-top:88px;}
   .nav-toggle{display:flex;flex:none;}
 }
 @media(max-width:640px){
-  .brand img{height:60px;}
-  #site-header.scrolled .brand img{height:48px;}
+  .brand .rotar-logo{height:60px;}
+  #site-header.scrolled .brand .rotar-logo{height:48px;}
   .brand-text strong{font-size:1.6rem;}
   .brand-text span{font-size:.76rem;}
   .brand-text::before{width:190px;height:110px;animation:none;opacity:.75;}
@@ -438,15 +464,10 @@ section[id]{scroll-margin-top:88px;}
 }
 @keyframes driftGrain{from{background-position:0 0;}to{background-position:400px 260px;}}
 
-/* the SVG feTurbulence displacement filter behind .hero-bg-wind is the
-   single most expensive effect on the page (software filter, recalculated
-   on every composited frame) — skip it on phones and keep only the static,
-   already-tinted .hero-bg-wheat layer underneath. Also freeze the grain
-   drift, which repaints a full-viewport layer every frame for a barely
-   visible effect. Keeps the mobile experience smooth and battery-friendly
-   without changing how the hero looks on desktop. */
+/* the grain drift repaints a full-viewport layer every frame for a barely
+   visible effect — freeze it on phones to save some battery/GPU without
+   touching the (clearly noticeable, and requested) wheat-sway motion. */
 @media(max-width:768px){
-  .hero-bg-wind{display:none;}
   .hero-grain{animation:none;}
 }
 
@@ -522,6 +543,11 @@ section[id]{scroll-margin-top:88px;}
 }
 .scroll-cue .line{width:1px;height:36px;background:linear-gradient(to bottom,rgba(255,255,255,.8),transparent);animation:cueMove 1.8s ease-in-out infinite;}
 @keyframes cueMove{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+/* on mobile the hero's height is driven by its content (not 100vh), so a
+   hint fixed to the hero's bottom edge can land on top of the last row of
+   .hero-chips; the hint is redundant there anyway since content already
+   implies more below, so just hide it */
+@media(max-width:768px){.scroll-cue{display:none;}}
 
 /* ===================== TRUST STRIP ===================== */
 .trust-strip{
@@ -928,7 +954,7 @@ footer{background:var(--green-900);color:rgba(244,236,216,.7);padding:56px 0 26p
 @media(max-width:768px){.footer-grid{grid-template-columns:1fr;gap:30px;}}
 @media(max-width:480px){.footer-bottom{text-align:center;justify-content:center;}}
 .footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
-.footer-brand img{height:38px;width:auto;}
+.footer-brand .rotar-logo{height:38px;}
 .footer-brand strong{font-family:'Poppins',sans-serif;color:#fff;font-size:1.1rem;}
 footer h3{color:#fff;font-size:.86rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px;}
 footer ul li{margin-bottom:10px;}
