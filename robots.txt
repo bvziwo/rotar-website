@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rotar-rotar.pl/sitemap.xml
+Sitemap: https://bvziwo.github.io/rotar-website/sitemap.xml
