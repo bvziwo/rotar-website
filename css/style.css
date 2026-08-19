@@ -282,6 +282,21 @@ section[id]{scroll-margin-top:88px;}
   will-change:opacity,transform,filter;
 }
 .reveal-scale.in{opacity:1;transform:scale(1);filter:blur(0);}
+.reveal-left{
+  opacity:0;transform:translateX(-52px);filter:blur(6px);
+  transition:opacity .9s var(--ease),transform .9s var(--ease),filter .9s var(--ease);
+  will-change:opacity,transform,filter;
+}
+.reveal-left.in{opacity:1;transform:translateX(0);filter:blur(0);}
+.reveal-right{
+  opacity:0;transform:translateX(52px);filter:blur(6px);
+  transition:opacity .9s var(--ease),transform .9s var(--ease),filter .9s var(--ease);
+  will-change:opacity,transform,filter;
+}
+.reveal-right.in{opacity:1;transform:translateX(0);filter:blur(0);}
+@media(prefers-reduced-motion:reduce){
+  .reveal,.reveal-scale,.reveal-left,.reveal-right{opacity:1;transform:none;filter:none;transition:none;}
+}
 .stagger > *{transition-delay:calc(var(--i,0) * 110ms);}
 
 /* ===================== ROTAR LOGO (spinning gear) =====================
@@ -727,17 +742,20 @@ section[id]{scroll-margin-top:88px;}
 .video-play svg{width:30px;height:30px;margin-left:4px;}
 .video-facade:hover .video-play{transform:translate(-50%,-50%) scale(1.08);background:var(--gold-light);}
 
-.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px 28px;}
-@media(max-width:920px){.projects-grid{grid-template-columns:1fr 1fr;}}
-@media(max-width:640px){.projects-grid{grid-template-columns:1fr;}}
-.project-card h3{
-  font-size:.92rem;font-weight:600;letter-spacing:.02em;
-  color:var(--green-800);margin-bottom:12px;
-}
-.project-card .gal-cat-grid{gap:8px;}
-
 .real-gallery-all{margin-top:64px;padding-top:48px;border-top:1px solid var(--gray-200);}
 .real-gallery-all .gal-cat-head{margin-bottom:24px;}
+.gallery-toggle{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 26px;border-radius:999px;
+  border:1.5px solid var(--green-700);color:var(--green-800);
+  font-family:'Poppins',sans-serif;font-weight:600;font-size:.94rem;
+  transition:background .3s,color .3s,transform .3s var(--ease);
+}
+.gallery-toggle:hover{background:var(--green-800);color:#fff;transform:translateY(-2px);}
+.gallery-toggle-chevron{width:18px;height:18px;flex:none;transition:transform .35s var(--ease);}
+.gallery-toggle[aria-expanded="true"] .gallery-toggle-chevron{transform:rotate(180deg);}
+#full-gallery-grid{margin-top:28px;}
+#full-gallery-grid[hidden]{display:none;}
 
 /* ===================== GALERIA (shared grid/head classes; also reused by the
    REALIZACJE full-gallery grid below) ===================== */

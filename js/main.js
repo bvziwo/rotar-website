@@ -80,7 +80,7 @@
      0-margin box, and as a safety net also force-reveal anything left over
      once the user nears the bottom of the page or the page finishes
      loading, so content can never get permanently stuck invisible. */
-  var revealEls = document.querySelectorAll('.reveal, .reveal-scale');
+  var revealEls = document.querySelectorAll('.reveal, .reveal-scale, .reveal-left, .reveal-right');
   var galItems = Array.prototype.slice.call(document.querySelectorAll('.gal-item'));
   var allRevealables = Array.prototype.slice.call(revealEls).concat(galItems);
 
@@ -169,6 +169,21 @@
     if(e.key === 'ArrowRight') step(1);
     if(e.key === 'ArrowLeft') step(-1);
   });
+
+  /* ---------- full gallery: hidden (and its lazy images unloaded) until clicked ---------- */
+  var galleryToggle = document.getElementById('gallery-toggle');
+  var galleryGrid = document.getElementById('full-gallery-grid');
+  if(galleryToggle && galleryGrid){
+    var galleryLabel = galleryToggle.querySelector('.gallery-toggle-label');
+    galleryToggle.addEventListener('click', function(){
+      var willShow = galleryGrid.hasAttribute('hidden');
+      if(willShow){ galleryGrid.removeAttribute('hidden'); }
+      else { galleryGrid.setAttribute('hidden', ''); }
+      galleryToggle.setAttribute('aria-expanded', String(willShow));
+      if(galleryLabel){ galleryLabel.textContent = willShow ? 'Ukryj galerię' : 'Zobacz całą galerię'; }
+      if(willShow){ galleryGrid.scrollIntoView({behavior:'smooth', block:'nearest'}); }
+    });
+  }
 
   /* ---------- YouTube facade: load real embed only after click ---------- */
   var videoFacade = document.getElementById('video-facade');
