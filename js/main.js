@@ -17,15 +17,22 @@
     else { window.addEventListener('load', hideLoader); }
   }
 
-  /* ---------- header shrink on scroll ---------- */
+  /* ---------- header shrink on scroll (rAF-throttled) ---------- */
   var header = document.getElementById('site-header');
   var backTop = document.getElementById('back-to-top');
+  var scrollTicking = false;
   function onScroll(){
     var y = window.scrollY;
     if(header){ header.classList.toggle('scrolled', y > 40); }
     if(backTop){ backTop.classList.toggle('show', y > 600); }
+    scrollTicking = false;
   }
-  document.addEventListener('scroll', onScroll, {passive:true});
+  document.addEventListener('scroll', function(){
+    if(!scrollTicking){
+      requestAnimationFrame(onScroll);
+      scrollTicking = true;
+    }
+  }, {passive:true});
   requestAnimationFrame(onScroll);
 
   if(backTop){
@@ -38,16 +45,31 @@
   var navToggle = document.getElementById('nav-toggle');
   var mainNav = document.getElementById('main-nav');
   if(navToggle && mainNav){
+    var offCanvasQuery = window.matchMedia('(max-width:1240px)');
+    var syncNavA11y = function(){
+      var isOpen = mainNav.classList.contains('open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      mainNav.toggleAttribute('inert', offCanvasQuery.matches && !isOpen);
+    };
+    var closeNav = function(){
+      navToggle.classList.remove('active');
+      mainNav.classList.remove('open');
+      syncNavA11y();
+    };
     navToggle.addEventListener('click', function(){
-      navToggle.classList.toggle('active');
-      mainNav.classList.toggle('open');
+      var willOpen = !mainNav.classList.contains('open');
+      navToggle.classList.toggle('active', willOpen);
+      mainNav.classList.toggle('open', willOpen);
+      syncNavA11y();
     });
     mainNav.querySelectorAll('a').forEach(function(a){
-      a.addEventListener('click', function(){
-        navToggle.classList.remove('active');
-        mainNav.classList.remove('open');
-      });
+      a.addEventListener('click', closeNav);
     });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && mainNav.classList.contains('open')){ closeNav(); navToggle.focus(); }
+    });
+    if(offCanvasQuery.addEventListener){ offCanvasQuery.addEventListener('change', syncNavA11y); }
+    syncNavA11y();
   }
 
   /* ---------- scroll reveal ---------- */
