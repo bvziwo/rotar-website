@@ -1,16 +1,32 @@
 (function(){
   "use strict";
 
+  /* ---------- page loader ---------- */
+  var pageLoader = document.getElementById('page-loader');
+  if(pageLoader){
+    var loaderStart = Date.now();
+    var loaderMinShow = 500;
+    var hideLoader = function(){
+      var wait = Math.max(0, loaderMinShow - (Date.now() - loaderStart));
+      setTimeout(function(){
+        pageLoader.classList.add('loaded');
+        setTimeout(function(){ pageLoader.remove(); }, 600);
+      }, wait);
+    };
+    if(document.readyState === 'complete'){ hideLoader(); }
+    else { window.addEventListener('load', hideLoader); }
+  }
+
   /* ---------- header shrink on scroll ---------- */
   var header = document.getElementById('site-header');
   var backTop = document.getElementById('back-to-top');
   function onScroll(){
-    var y = window.scrollY || document.documentElement.scrollTop;
+    var y = window.scrollY;
     if(header){ header.classList.toggle('scrolled', y > 40); }
     if(backTop){ backTop.classList.toggle('show', y > 600); }
   }
   document.addEventListener('scroll', onScroll, {passive:true});
-  onScroll();
+  requestAnimationFrame(onScroll);
 
   if(backTop){
     backTop.addEventListener('click', function(){
@@ -48,47 +64,6 @@
     revealEls.forEach(function(el){ io.observe(el); });
   } else {
     revealEls.forEach(function(el){ el.classList.add('in'); });
-  }
-
-  /* ---------- offer tabs ---------- */
-  var tabBtns = document.querySelectorAll('.tab-btn');
-  var tabPanels = document.querySelectorAll('.tab-panel');
-  tabBtns.forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var target = btn.getAttribute('data-tab');
-      tabBtns.forEach(function(b){ b.classList.toggle('active', b === btn); });
-      tabPanels.forEach(function(p){ p.classList.toggle('active', p.getAttribute('data-panel') === target); });
-    });
-  });
-
-  /* ---------- build full "hale" gallery on demand ---------- */
-  var haleExtra = document.getElementById('gal-hale-extra');
-  if(haleExtra){
-    var frag = document.createDocumentFragment();
-    for(var h = 1; h <= 42; h++){
-      var idx = ('0' + h).slice(-2);
-      frag.appendChild(makeGalItem('img/hale/hale-' + idx + '.jpg', 'Hala i konstrukcja stalowa ROTAR ' + h, 'hale'));
-    }
-    haleExtra.appendChild(frag);
-  }
-  function makeGalItem(src, alt, group){
-    var div = document.createElement('div');
-    div.className = 'gal-item';
-    div.setAttribute('data-group', group);
-    div.innerHTML = '<img src="' + src + '" data-full="' + src + '" alt="' + alt + '" loading="lazy">' +
-      '<span class="zoom">' + zoomIconMarkup() + '</span>';
-    return div;
-  }
-  function zoomIconMarkup(){
-    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"></path></svg>';
-  }
-
-  var haleMoreBtn = document.getElementById('gal-more-btn');
-  if(haleMoreBtn && haleExtra){
-    haleMoreBtn.addEventListener('click', function(){
-      haleExtra.hidden = false;
-      haleMoreBtn.style.display = 'none';
-    });
   }
 
   /* ---------- gallery items + reveal ---------- */
@@ -145,21 +120,10 @@
     updateLightbox();
   }
 
-  galItems.forEach(function(item){
+  function bindGalItem(item){
     item.addEventListener('click', function(){ openLightbox(item); });
-  });
-  var realStripFigs = document.querySelectorAll('.real-strip figure');
-  realStripFigs.forEach(function(fig){
-    fig.addEventListener('click', function(){
-      var img = fig.querySelector('img');
-      lbImg.src = img.getAttribute('data-full') || img.src;
-      lbImg.alt = img.alt || '';
-      currentSet = [];
-      lbCounter.textContent = '';
-      lightbox.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    });
-  });
+  }
+  galItems.forEach(bindGalItem);
 
   var lbClose = document.querySelector('.lightbox-close');
   var lbPrev = document.querySelector('.lightbox-prev');
@@ -178,6 +142,20 @@
     if(e.key === 'ArrowRight') step(1);
     if(e.key === 'ArrowLeft') step(-1);
   });
+
+  /* ---------- YouTube facade: load real embed only after click ---------- */
+  var videoFacade = document.getElementById('video-facade');
+  if(videoFacade){
+    videoFacade.addEventListener('click', function(){
+      var id = videoFacade.getAttribute('data-video-id');
+      var iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+      iframe.title = 'ROTAR — film z realizacji';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      videoFacade.replaceWith(iframe);
+    });
+  }
 
   /* ---------- current year ---------- */
   var yearEl = document.getElementById('year');

@@ -1,0 +1,16 @@
+{
+  "name": "ROTAR Sp. Jawna – Czyszczalnie, przenośniki i konstrukcje stalowe",
+  "short_name": "ROTAR",
+  "description": "Czyszczalnie, przenośniki kubełkowe i łańcuchowe, wywrotnice, hale i konstrukcje stalowe dla rolnictwa. Koneck, woj. kujawsko-pomorskie.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f5eedf",
+  "theme_color": "#2c2110",
+  "lang": "pl",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
