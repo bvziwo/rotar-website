@@ -55,6 +55,8 @@
       navToggle.classList.remove('active');
       mainNav.classList.remove('open');
       syncNavA11y();
+      if(ofertaDropdown){ ofertaDropdown.classList.remove('open'); }
+      if(ofertaToggle){ ofertaToggle.setAttribute('aria-expanded', 'false'); }
     };
     navToggle.addEventListener('click', function(){
       var willOpen = !mainNav.classList.contains('open');
@@ -72,6 +74,33 @@
     syncNavA11y();
   }
 
+  /* ---------- Oferta dropdown (hover on desktop via CSS, click/tap everywhere via JS) ---------- */
+  var ofertaDropdown = document.getElementById('oferta-dropdown');
+  var ofertaToggle = document.getElementById('oferta-dropdown-toggle');
+  if(ofertaDropdown && ofertaToggle){
+    var closeOfertaDropdown = function(){
+      ofertaDropdown.classList.remove('open');
+      ofertaToggle.setAttribute('aria-expanded', 'false');
+    };
+    ofertaToggle.addEventListener('click', function(e){
+      e.preventDefault();
+      var willOpen = !ofertaDropdown.classList.contains('open');
+      ofertaDropdown.classList.toggle('open', willOpen);
+      ofertaToggle.setAttribute('aria-expanded', String(willOpen));
+    });
+    document.addEventListener('click', function(e){
+      if(ofertaDropdown.classList.contains('open') && !ofertaDropdown.contains(e.target)){
+        closeOfertaDropdown();
+      }
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && ofertaDropdown.classList.contains('open')){
+        closeOfertaDropdown();
+        ofertaToggle.focus();
+      }
+    });
+  }
+
   /* ---------- scroll reveal ----------
      A negative bottom rootMargin shrinks the box an element must enter to
      count as "visible", which can strand items that sit right at the very
@@ -80,7 +109,7 @@
      0-margin box, and as a safety net also force-reveal anything left over
      once the user nears the bottom of the page or the page finishes
      loading, so content can never get permanently stuck invisible. */
-  var revealEls = document.querySelectorAll('.reveal, .reveal-scale, .reveal-left, .reveal-right');
+  var revealEls = document.querySelectorAll('.reveal, .reveal-scale, .reveal-left, .reveal-right, .photo-reveal');
   var galItems = Array.prototype.slice.call(document.querySelectorAll('.gal-item'));
   var allRevealables = Array.prototype.slice.call(revealEls).concat(galItems);
 
