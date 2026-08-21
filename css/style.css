@@ -1135,6 +1135,8 @@ footer ul a:hover{color:var(--gold-light);}
   color:var(--gold-light);font-family:'Poppins',sans-serif;font-size:.72rem;
   letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;border-radius:999px;
 }
+.product-two-media.schema-media{background:#fff;}
+.product-two-media.schema-media img{object-fit:contain;padding:28px;filter:none;}
 
 .product-gallery{margin-top:80px;}
 .product-gallery h2{font-size:clamp(1.5rem,2.6vw,2rem);margin-bottom:24px;}
