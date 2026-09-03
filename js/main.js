@@ -214,6 +214,23 @@
     });
   }
 
+  /* ---------- gallery tabs ---------- */
+  var galTabs = Array.prototype.slice.call(document.querySelectorAll('.gal-tab'));
+  var galPanels = Array.prototype.slice.call(document.querySelectorAll('.gal-panel'));
+  galTabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      var target = tab.getAttribute('data-tab');
+      galTabs.forEach(function(t){
+        var active = t === tab;
+        t.classList.toggle('is-active', active);
+        t.setAttribute('aria-selected', String(active));
+      });
+      galPanels.forEach(function(p){
+        p.classList.toggle('is-active', p.getAttribute('data-panel') === target);
+      });
+    });
+  });
+
   /* ---------- YouTube facade: load real embed only after click ---------- */
   var videoFacade = document.getElementById('video-facade');
   if(videoFacade){

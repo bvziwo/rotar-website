@@ -813,6 +813,19 @@ section[id]{scroll-margin-top:88px;}
 #full-gallery-grid{margin-top:28px;}
 #full-gallery-grid[hidden]{display:none;}
 
+.gal-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px;}
+.gal-tab{
+  padding:12px 24px;border-radius:999px;
+  border:1.5px solid var(--green-700);color:var(--green-800);
+  font-family:'Poppins',sans-serif;font-weight:600;font-size:.9rem;
+  background:transparent;
+  transition:background .3s,color .3s,transform .3s var(--ease);
+}
+.gal-tab:hover{transform:translateY(-2px);}
+.gal-tab.is-active{background:var(--green-800);color:#fff;}
+.gal-panel{display:none;}
+.gal-panel.is-active{display:block;}
+
 /* ===================== AKTUALNOŚCI ===================== */
 .aktualnosci{background:var(--bg);}
 .news-title{position:relative;display:inline-block;}
