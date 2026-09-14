@@ -381,6 +381,10 @@ section[id]{scroll-margin-top:88px;}
 /* ---------- Oferta dropdown ---------- */
 .nav-dropdown{position:relative;}
 .nav-dropdown-toggle{
+  /* it's a <button>, not an <a> — reset the native control chrome (iOS
+     Safari especially likes to add its own padding/line-height to
+     buttons) so its row lines up with the plain nav links around it. */
+  -webkit-appearance:none;appearance:none;margin:0;text-align:left;
   display:inline-flex;align-items:center;gap:6px;white-space:nowrap;
   font-family:'Poppins',sans-serif;font-weight:500;font-size:.92rem;
   color:#fff;padding:10px 16px;border-radius:999px;
@@ -432,7 +436,8 @@ section[id]{scroll-margin-top:88px;}
      kept well short of the old 640px so the .4s easing curve isn't spent
      animating empty space, which read as a slow/uneven snap on open. */
   .nav-dropdown.open .nav-dropdown-menu{max-height:560px;padding:6px 4px 10px;opacity:1;}
-  .nav-dropdown-menu a{color:#fff!important;font-size:.98rem;padding-top:13px;padding-bottom:13px;}
+  /* each offer centered as its own icon+label line, not left-hugging the edge */
+  .nav-dropdown-menu a{justify-content:center;text-align:center;color:#fff!important;font-size:.98rem;padding-top:13px;padding-bottom:13px;}
   .nav-dropdown-menu a:hover{background:rgba(255,255,255,.08);}
   .nav-dropdown-menu a svg{color:var(--gold-light);}
 }
