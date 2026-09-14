@@ -51,10 +51,36 @@
       navToggle.setAttribute('aria-expanded', String(isOpen));
       mainNav.toggleAttribute('inert', offCanvasQuery.matches && !isOpen);
     };
+    /* ---------- lock the page behind the off-canvas drawer ----------
+       Without this, iOS Safari lets the page scroll underneath the fixed
+       drawer (rubber-banding/URL-bar show-hide), which is what read as
+       menu items "jumping" or losing their position while switching
+       between tabs or expanding Oferta with the drawer open. */
+    var scrollLockY = 0;
+    var isScrollLocked = false;
+    var lockBodyScroll = function(){
+      if(isScrollLocked || !offCanvasQuery.matches) return;
+      scrollLockY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = (-scrollLockY) + 'px';
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      isScrollLocked = true;
+    };
+    var unlockBodyScroll = function(){
+      if(!isScrollLocked) return;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      window.scrollTo(0, scrollLockY);
+      isScrollLocked = false;
+    };
     var closeNav = function(){
       navToggle.classList.remove('active');
       mainNav.classList.remove('open');
       syncNavA11y();
+      unlockBodyScroll();
       if(ofertaDropdown){ ofertaDropdown.classList.remove('open'); }
       if(ofertaToggle){ ofertaToggle.setAttribute('aria-expanded', 'false'); }
     };
@@ -63,6 +89,7 @@
       navToggle.classList.toggle('active', willOpen);
       mainNav.classList.toggle('open', willOpen);
       syncNavA11y();
+      if(willOpen){ lockBodyScroll(); } else { unlockBodyScroll(); }
     });
     mainNav.querySelectorAll('a').forEach(function(a){
       a.addEventListener('click', closeNav);
@@ -70,7 +97,12 @@
     document.addEventListener('keydown', function(e){
       if(e.key === 'Escape' && mainNav.classList.contains('open')){ closeNav(); navToggle.focus(); }
     });
-    if(offCanvasQuery.addEventListener){ offCanvasQuery.addEventListener('change', syncNavA11y); }
+    if(offCanvasQuery.addEventListener){
+      offCanvasQuery.addEventListener('change', function(){
+        if(!offCanvasQuery.matches){ unlockBodyScroll(); }
+        syncNavA11y();
+      });
+    }
     syncNavA11y();
   }
 
