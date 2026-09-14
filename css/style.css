@@ -993,7 +993,11 @@ section[id]{scroll-margin-top:88px;}
 }
 .lightbox.open{opacity:1;pointer-events:auto;}
 .lightbox img{
-  max-width:min(88vw,560px);max-height:75vh;max-height:75dvh;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.5);
+  /* no explicit width/height here, so the browser only ever shrinks an
+     image down to fit these caps — it never stretches a smaller image up
+     to meet them, so raising the cap makes big photos display bigger on
+     desktop without upscaling (and blurring) smaller ones. */
+  max-width:min(92vw,1400px);max-height:88vh;max-height:88dvh;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.5);
   transform:scale(.94);transition:transform .35s var(--ease);
   image-rendering:-webkit-optimize-contrast;
 }
