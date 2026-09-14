@@ -429,7 +429,12 @@ section[id]{scroll-margin-top:88px;}
     background:rgba(255,255,255,.04);box-shadow:none;
     max-height:0;overflow:hidden;padding:0 4px;opacity:0;visibility:visible;pointer-events:auto;
     transition:max-height .4s var(--ease),padding .4s var(--ease),opacity .3s var(--ease);
-    display:grid;gap:4px;
+    /* without an explicit column, the lone implicit grid column sized
+       itself to each row's own content instead of the full row width -
+       centered text then had nowhere to center INTO, so it sat flush at
+       the left edge and (being wider than its own shrink-fit cell once
+       padding was added) had its right side clipped by overflow:hidden. */
+    display:grid;grid-template-columns:minmax(0,1fr);gap:4px;
   }
   .nav-dropdown-menu::before{display:none;}
   /* max-height only needs to clear the real content (~460px for 8 items);
