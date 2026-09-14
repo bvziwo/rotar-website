@@ -439,8 +439,15 @@ section[id]{scroll-margin-top:88px;}
   .nav-dropdown-menu::before{display:none;}
   /* max-height only needs to clear the real content (~460px for 8 items);
      kept well short of the old 640px so the .4s easing curve isn't spent
-     animating empty space, which read as a slow/uneven snap on open. */
-  .nav-dropdown.open .nav-dropdown-menu{max-height:560px;padding:6px 4px 10px;opacity:1;}
+     animating empty space, which read as a slow/uneven snap on open.
+     transform:none MUST be repeated here: the desktop .open rule below
+     (same selector, so equal specificity) sets transform:translateX(-50%)
+     to re-center its absolutely-positioned popover, and that rule doesn't
+     get cancelled just because the closed-state rule above already reset
+     transform - it's a separate, more specific selector that keeps
+     applying once .open is added, shoving the (already full-width) mobile
+     panel half its own width off-screen to the left. */
+  .nav-dropdown.open .nav-dropdown-menu{max-height:560px;padding:6px 4px 10px;opacity:1;transform:none;}
   /* plain centered text line per offer, matching the main tabs — the icon's
      own width shifted with each label's length, so centering icon+text as a
      pair still looked unaligned row to row; dropping the icon on mobile
