@@ -436,8 +436,12 @@ section[id]{scroll-margin-top:88px;}
      kept well short of the old 640px so the .4s easing curve isn't spent
      animating empty space, which read as a slow/uneven snap on open. */
   .nav-dropdown.open .nav-dropdown-menu{max-height:560px;padding:6px 4px 10px;opacity:1;}
-  /* each offer centered as its own icon+label line, not left-hugging the edge */
+  /* plain centered text line per offer, matching the main tabs — the icon's
+     own width shifted with each label's length, so centering icon+text as a
+     pair still looked unaligned row to row; dropping the icon on mobile
+     removes that and gives uniform, centered, line-by-line rows. */
   .nav-dropdown-menu a{justify-content:center;text-align:center;color:#fff!important;font-size:.98rem;padding-top:13px;padding-bottom:13px;}
+  .nav-dropdown-menu a svg{display:none;}
   .nav-dropdown-menu a:hover{background:rgba(255,255,255,.08);}
   .nav-dropdown-menu a svg{color:var(--gold-light);}
 }
@@ -589,10 +593,14 @@ section[id]{scroll-margin-top:88px;}
 @keyframes driftGrain{from{background-position:0 0;}to{background-position:400px 260px;}}
 
 /* the grain drift repaints a full-viewport layer every frame for a barely
-   visible effect — freeze it on phones to save some battery/GPU without
-   touching the (clearly noticeable, and requested) wheat-sway motion. */
+   visible effect — freeze it on phones to save some battery/GPU. The
+   wind-sway layer (.hero-bg-wind) uses an SVG filter (feDisplacementMap)
+   applied to a masked, transformed element, which iOS Safari has long had
+   rendering bugs with; it's turned off below 768px rather than risk a
+   glitchy/invisible hero on iPhone. */
 @media(max-width:768px){
   .hero-grain{animation:none;}
+  .hero-bg-wind{display:none;}
 }
 
 .hero-watermark{
@@ -1203,6 +1211,18 @@ footer ul a:hover{color:var(--gold-light);}
 }
 .product-two-media.schema-media{background:#fff;}
 .product-two-media.schema-media img{object-fit:contain;padding:28px;filter:none;}
+
+.product-stack{max-width:640px;margin:0 auto 64px;}
+.product-stack h2{color:#fff;font-size:clamp(1.5rem,2.6vw,2rem);margin-bottom:20px;}
+.product-stack .frame{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);margin-bottom:24px;background:#fff;}
+.product-stack .frame img{width:100%;height:auto;display:block;}
+.product-stack p{color:rgba(244,236,216,.8);font-size:1.02rem;}
+@media(max-width:640px){
+  /* the schema diagram (czyszczalnie.html) filled the phone screen
+     edge-to-edge with no breathing room, which read as "stretched" —
+     shrink and center it so it reads as a framed image again. */
+  .product-stack .frame{max-width:82%;margin-left:auto;margin-right:auto;}
+}
 
 .machines-copy{max-width:760px;margin:0 0 24px;}
 .machines-copy p{margin:0 0 12px;}
