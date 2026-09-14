@@ -482,7 +482,13 @@ section[id]{scroll-margin-top:88px;}
   .main-nav.open{transform:translateX(0);}
   .main-nav ul{flex-direction:column;align-items:stretch;width:100%;gap:4px;margin:auto 0;flex:none;}
   .main-nav ul>li{width:100%;flex:none;}
-  .main-nav a{color:#fff !important;width:100%;padding:14px 10px;font-size:1.1rem;}
+  /* a plain <a> is display:inline by default, so width:100% on it is a
+     no-op: the tap target stayed only as wide as the text, and — since
+     .nav-dropdown-toggle is a <button> (inline-flex, which DOES honor
+     width) — that's exactly why "Oferta" looked/behaved differently from
+     the rest. display:flex here makes every row the same full-width,
+     same-height, same-alignment tap target. */
+  .main-nav a{display:flex;align-items:center;color:#fff !important;width:100%;padding:14px 10px;font-size:1.1rem;}
   .nav-toggle{display:flex;flex:none;}
 }
 @media(max-width:640px){
@@ -495,6 +501,17 @@ section[id]{scroll-margin-top:88px;}
 }
 @media(max-width:380px){
   .brand-text span{display:none;}
+}
+@media(max-width:400px){
+  /* header row math at 320-400px: container padding (24px*2) + nav-toggle
+     (44px) + gap (12px) leaves ~190-220px for the logo+brand-text — the
+     640px-breakpoint sizes above don't fit that, and with no flex-wrap on
+     the header they'd get clipped by body's overflow-x:hidden instead of
+     just wrapping, i.e. the hamburger button could be pushed off-screen. */
+  .brand{gap:10px;}
+  .brand .rotar-logo{height:44px;}
+  #site-header.scrolled .brand .rotar-logo{height:40px;}
+  .brand-text strong{font-size:1.3rem;}
 }
 
 /* ===================== HERO ===================== */
